@@ -14,3 +14,4 @@ The secrets.ini contains all of your personal credentials, API keys and the host
     <code>
         pip3 install -r requirements.txt
     </code>
+ 
