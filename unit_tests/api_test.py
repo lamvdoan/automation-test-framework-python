@@ -18,8 +18,8 @@ class ApiBaseUnittest(unittest.TestCase):
 
         self.assertEqual(self.api.get_status_code(), 200)
 
-        # data_response_text = str(self.api.get_body()["data"].strip("\""))
-        # self.assertEqual(self.json_payload, data_response_text)
+        data_response_text = str(self.api.get_body()["data"].strip("\""))
+        self.assertEqual(self.json_payload, data_response_text)
 
     def test_put_request(self):
         self.api.set_url("https://postman-echo.com/put")

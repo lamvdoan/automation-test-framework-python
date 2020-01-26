@@ -7,13 +7,6 @@ class WebDriverBase:
     __instance = None
     driver = None
 
-    @staticmethod
-    def get_instance():
-        """ Static access method. """
-        if WebDriverBase.__instance is None:
-            WebDriverBase()
-        return WebDriverBase.__instance
-
     def __init__(self):
         if WebDriverBase.__instance is None:
             WebDriverBase.__instance = self

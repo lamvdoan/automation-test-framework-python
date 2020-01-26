@@ -6,13 +6,6 @@ class MobileDriverBase:
     __instance = None
     driver = None
 
-    @staticmethod
-    def get_instance():
-        """ Static access method. """
-        if MobileDriverBase.__instance is None:
-            MobileDriverBase()
-        return MobileDriverBase.__instance
-
     def __init__(self):
         if MobileDriverBase.__instance is None:
             MobileDriverBase.__instance = self
@@ -24,8 +17,6 @@ class MobileDriverBase:
                 desired_caps['automationName'] = 'uiautomator2'
                 desired_caps['deviceName'] = 'Android Emulator'
                 desired_caps['app'] = "PATH('../../../apps/selendroid-test-app.apk')"
-
-                MobileDriverBase.driver = webdriver.Remote(APPIUM_DRIVER_HOST, desired_caps)
             elif MOBILE_TYPE == "IOS":
                 desired_caps['platformName'] = 'iOS'
                 desired_caps['platformVersion'] = '11.4'
@@ -33,7 +24,7 @@ class MobileDriverBase:
                 desired_caps['deviceName'] = 'iPhone Simulator'
                 desired_caps['app'] = "PATH('../../../apps/selendroid-test-app.apk')"
 
-                MobileDriverBase.driver = webdriver.Remote(APPIUM_DRIVER_HOST, desired_caps)
+            MobileDriverBase.driver = webdriver.Remote(APPIUM_DRIVER_HOST, desired_caps)
 
     @staticmethod
     def get_driver():
