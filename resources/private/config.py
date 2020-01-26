@@ -26,8 +26,9 @@ def get_config_value(section, field):
     try:
         value = config.get(section, field)
         return value
-    except Exception:
+    except configparser.NoOptionError:
         print("Missing Option: Section={}, Field={}.  Field does not exist in secrets.ini!".format(section, field))
+    except configparser.NoSectionError:
         print("Missing Section: Section={}, Field={}.  Section does not exist in secrets.ini!".format(section, field))
 
 
