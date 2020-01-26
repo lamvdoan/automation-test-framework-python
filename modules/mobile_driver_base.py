@@ -1,5 +1,4 @@
 from appium import webdriver
-
 from resources.private.config import APPIUM_DRIVER_HOST, MOBILE_TYPE
 
 
